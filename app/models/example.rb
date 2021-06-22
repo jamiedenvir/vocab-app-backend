@@ -2,20 +2,14 @@ class Example < ApplicationRecord
   belongs_to :user
   belongs_to :prompt 
 
-  response.headers["app_id"] = "07e4e85c",["app_key"] = "2434c7ca68bd567abc4fee242c3c9381"
   
-  def word
+  def word_data
 
-
-    
-    
-    response = HTTP.get("https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/absolve?strictMatch=false")
-    
-    
+  
+    response = HTTP.headers("app_id" => Rails.application.credentials.app_id, "app_key" => Rails.application.credentials.app_key).get("https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/#{word}?strictMatch=false")
+ 
     response.parse(:json)
-
-    
-
 
   end
 end
+
