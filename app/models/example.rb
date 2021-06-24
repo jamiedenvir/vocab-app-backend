@@ -31,7 +31,10 @@ class Example < ApplicationRecord
         api_word_data_object["lexicalEntries"][0]["entries"][0]["senses"][0]["synonyms"][2]["text"],
         api_word_data_object["lexicalEntries"][0]["entries"][0]["senses"][0]["synonyms"][3]["text"],
         api_word_data_object["lexicalEntries"][0]["entries"][0]["senses"][0]["synonyms"][4]["text"],
-      ]
+        ],
+
+      lexical_category: api_word_data_object["lexicalEntries"][0]["lexicalCategory"]["text"],
+
 
       
     }

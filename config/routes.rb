@@ -8,4 +8,10 @@ Rails.application.routes.draw do
 
   get "/prompts" => "prompts#index"
 
+  get "/examples" => "examples#index"
+  get "/examples/:id" => "examples#show"
+  post "/examples" => "examples#create"
+  patch "/examples/:id" => "examples#update"
+  delete "/examples/:id" => "examples#destroy"
+
 end
