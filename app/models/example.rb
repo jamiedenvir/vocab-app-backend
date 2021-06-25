@@ -15,8 +15,6 @@ class Example < ApplicationRecord
 
       etymologies: api_word_data_object["lexicalEntries"][0]["entries"][0]["etymologies"],
 
-      grammatical_features: api_word_data_object["lexicalEntries"][0]["entries"][0]["grammaticalFeatures"][0]["id"],
-      
       audio: api_word_data_object["lexicalEntries"][0]["entries"][0]["pronunciations"][0]["audioFile"],
 
       phonetic_spelling: api_word_data_object["lexicalEntries"][0]["entries"][0]["pronunciations"][0]["phoneticSpelling"],
