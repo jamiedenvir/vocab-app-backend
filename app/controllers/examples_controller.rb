@@ -23,7 +23,8 @@ class ExamplesController < ApplicationController
       sentence: params[:sentence]
     )
     if example.save
-      render json: { message: "New Example Created!" }, status: :created
+      render json: example
+      # render json: { message: "New Example Created!" }, status: :created
     else
       render json: { message: "Please Login to Complete This Request" }, status: :unauthorized
     end
