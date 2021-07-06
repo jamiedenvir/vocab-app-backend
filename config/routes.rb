@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   patch "/examples/:id" => "examples#update"
   delete "/examples/:id" => "examples#destroy"
 
-  get "/words/:id" => "words#show"
+  get "/worddata/:id" => "word_datas#show"
 
 end
