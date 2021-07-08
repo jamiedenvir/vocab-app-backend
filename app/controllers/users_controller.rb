@@ -20,15 +20,19 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-  
-    user.name = params[:name] || user.name
-    user.email = params[:email] || user.email
-    if user.save
-      render json: user
-    else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-    end  
-    # end
+    if current_user.id == user.id
+      if params[:password] && params[:password_confirmation]
+        user.password = params[:password]
+        user.password_confirmation = params[:password_confirmation]
+      end
+      user.name = params[:name] || user.name
+      user.email = params[:email] || user.email
+      if user.save
+        render json: user
+      else
+        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      end  
+    end
   end
 
   def destroy
